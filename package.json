@@ -1,0 +1,26 @@
+{
+  "name": "js-image-comparison",
+  "productName": "Image comparison libraries example",
+  "version": "1.0.0",
+  "description": "Example of using pixelmatch and Resemble.js",
+  "scripts": {
+    "test:pixelmatch": "",
+    "test:resemeblejs": ""
+  },
+  "repository": "https://github.com/unrealgear/js-image-comparison",
+  "keywords": [
+    "js",
+    "mocha",
+    "image",
+    "comparison",
+    "discrepancies",
+    "difference",
+    "examples"
+  ],
+  "devDependencies": {
+    "pixelmatch": "^4.0.2",
+    "resemblejs": "^3.0.0",
+    "chai": "^3.4.1",
+    "mocha": "^5.2.0"
+  }
+}
