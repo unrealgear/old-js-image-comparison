@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "Example of using pixelmatch and Resemble.js",
   "scripts": {
-    "test:pixelmatch": "",
-    "test:resemeblejs": ""
+    "test:pixelmatch": "mocha source/test/pixelmatch/test.js",
+    "test:resemeblejs": "mocha source/test/resemblejs/test.js"
   },
   "repository": "https://github.com/unrealgear/js-image-comparison",
   "keywords": [
@@ -21,6 +21,7 @@
     "pixelmatch": "^4.0.2",
     "resemblejs": "^3.0.0",
     "chai": "^3.4.1",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "mz": "^2.7.0"
   }
 }
