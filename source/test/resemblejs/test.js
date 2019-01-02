@@ -39,12 +39,12 @@ describe("Basic example of resemblejs", async function () {
         // The parameters can be Node Buffers
         // data is the same as usual with an additional getBuffer() function
         const data = await compareImages(
-            await fs.readFile("images/People.jpg"),
-            await fs.readFile("images/People2.jpg"),
+            await fs.readFile(__dirname + "/images/People.jpg"),
+            await fs.readFile(__dirname + "/images/People2.jpg"),
             options
         );
 
         // create results directory before run
-        await fs.writeFile("results/output.png", data.getBuffer());
+        await fs.writeFile(__dirname + "/results/output.png", data.getBuffer());
     })
 });
