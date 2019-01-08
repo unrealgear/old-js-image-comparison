@@ -2,6 +2,7 @@
 
 const compareImages = require("resemblejs/compareImages");
 const fs = require("mz/fs");
+const path = require("path");
 
 describe("Basic example of resemblejs", async function () {
     it("Run from chai test", async function () {
@@ -39,12 +40,12 @@ describe("Basic example of resemblejs", async function () {
         // The parameters can be Node Buffers
         // data is the same as usual with an additional getBuffer() function
         const data = await compareImages(
-            await fs.readFile(__dirname + "/images/People.jpg"),
-            await fs.readFile(__dirname + "/images/People2.jpg"),
+            await fs.readFile(path.join(__dirname, "images", "People.jpg")),
+            await fs.readFile(path.join(__dirname, "images", "People2.jpg")),
             options
         );
 
         // create results directory before run
-        await fs.writeFile(__dirname + "/results/output.png", data.getBuffer());
+        await fs.writeFile(path.join(__dirname, "results", "output.png"), data.getBuffer());
     })
 });

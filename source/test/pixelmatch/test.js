@@ -48,14 +48,14 @@ describe("Using pixelmatch for comparison", async function () {
     }
 
     function readImage(name) {
-        return PNG.sync.read(fs.readFileSync(path.join(__dirname, "/images/" + name + ".png")))
+        return PNG.sync.read(fs.readFileSync(path.join(__dirname, "images", name + ".png")))
     }
 });
 
 describe("Simple example from GitHub", function () {
     it("Run example", function () {
-        let img1 = fs.createReadStream(path.join(__dirname, "images/2a.png")).pipe(new PNG()).on("parsed", doneReading),
-            img2 = fs.createReadStream(path.join(__dirname, "images/2b.png")).pipe(new PNG()).on("parsed", doneReading),
+        let img1 = fs.createReadStream(path.join(__dirname, "images", "2a.png")).pipe(new PNG()).on("parsed", doneReading),
+            img2 = fs.createReadStream(path.join(__dirname, "images", "2b.png")).pipe(new PNG()).on("parsed", doneReading),
             filesRead = 0;
 
         function doneReading() {
@@ -65,14 +65,14 @@ describe("Simple example from GitHub", function () {
             match(img1.data, img2.data, diff.data, img1.width, img1.height, {threshold: 0.1});
 
             // create folder 'results' or provide permissions to create folders
-            diff.pack().pipe(fs.createWriteStream(path.join(__dirname, "results/diff-example.png")));
+            diff.pack().pipe(fs.createWriteStream(path.join(__dirname, "results", "diff-example.png")));
         }
     })
 });
 
 describe("Basic example", function () {
-    let img1 = PNG.sync.read(fs.readFileSync(path.join(__dirname, "/images/2a.png"))),
-        img2 = PNG.sync.read(fs.readFileSync(path.join(__dirname, "/images/2b.png")));
+    let img1 = PNG.sync.read(fs.readFileSync(path.join(__dirname, "images", "2a.png"))),
+        img2 = PNG.sync.read(fs.readFileSync(path.join(__dirname, "images", "2b.png")));
 
     it("Run basic example", function () {
         let diff = new PNG({width: img1.width, height: img1.height});
@@ -81,6 +81,6 @@ describe("Basic example", function () {
         let numberOfDiffs = match(img1.data, img2.data, diff.data, img1.width, img1.height);
 
         // create folder 'results' or provide permissions to create folders
-        diff.pack().pipe(fs.createWriteStream(path.join(__dirname, "/results/diff-basic.png")));
+        diff.pack().pipe(fs.createWriteStream(path.join(__dirname, "results", "diff-basic.png")));
     })
 });
