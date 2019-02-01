@@ -1,4 +1,4 @@
-# js-image-comparison
+# old-js-image-comparison
 Examples of using Resemble.js and pixelmatch for image comparison.
 
 To run: 
